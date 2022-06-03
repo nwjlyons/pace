@@ -8,17 +8,17 @@ const max = 60 * 15;
 const oneKm = 1000;
 const oneMileInKm = 1.609344;
 
-const distances = [
-  { name: "100 m", distance: 100, hightlight: false },
-  { name: "200 m", distance: 200, hightlight: false },
-  { name: "400 m", distance: 400, hightlight: false },
-  { name: "800 m", distance: 800, hightlight: false },
-  { name: "1 km", distance: 1000, hightlight: true },
-  { name: "1 mile", distance: 1609.34, hightlight: false },
-  { name: "5 km", distance: 5000, hightlight: false },
-  { name: "10 km", distance: 10000, hightlight: false },
-  { name: "Half Marathon", distance: 21097.5, hightlight: false },
-  { name: "Marathon", distance: 42195, hightlight: false },
+const distances: Array<{ name: string, distance: number }> = [
+  { name: "100 m", distance: 100 },
+  { name: "200 m", distance: 200 },
+  { name: "400 m", distance: 400 },
+  { name: "800 m", distance: 800 },
+  { name: "1 km", distance: 1000 },
+  { name: "1 mile", distance: 1609.34 },
+  { name: "5 km", distance: 5000 },
+  { name: "10 km", distance: 10000 },
+  { name: "Half Marathon", distance: 21097.5 },
+  { name: "Marathon", distance: 42195 },
 ]
 
 interface IProps {
