@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 
 const min = 0;
@@ -19,9 +20,17 @@ const distances = [
   { name: "Marathon", distance: 42195, hightlight: false },
 ]
 
+interface IProps {
+}
 
-export default class Pace extends React.Component {
-  constructor(props) {
+interface IState {
+  secs: number;
+}
+
+
+export default class Pace extends React.Component<IProps, IState> {
+
+  constructor(props: IProps) {
     super(props);
     this.state = { secs: initial };
   }
@@ -44,7 +53,7 @@ export default class Pace extends React.Component {
     return (
       <div className="m-4">
         <header className="p-4 bg-white rounded-lg shadow flex items-center justify-center md:p-6">
-          <h1 className="text-3xl text-gray-800 font-bold"><a href="/" className="hover:underline">Pace Converter</a>
+          <h1 className="text-3xl text-gray-800 font-bold"><Link href="/" className="hover:underline">Pace Converter</Link>
           </h1>
         </header>
         <h1 className="text-4xl mb-4"></h1>
