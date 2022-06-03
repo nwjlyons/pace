@@ -3,8 +3,9 @@ import Link from 'next/link'
 
 
 const min = 0;
-const initial = 60 * 3;
+const initial = 60 * 4;
 const max = 60 * 15;
+const oneKm = 1000;
 const oneMileInKm = 1.609344;
 
 const distances = [
@@ -27,6 +28,11 @@ interface IState {
   secs: number;
 }
 
+function formatSeconds(seconds: number): string {
+  let [start, end] = (seconds < 3600) ? [14, 19] : [11, 19]
+  return new Date(seconds).toISOString().substring(start, end)
+}
+
 
 export default class Pace extends React.Component<IProps, IState> {
 
@@ -35,9 +41,19 @@ export default class Pace extends React.Component<IProps, IState> {
     this.state = { secs: initial };
   }
   elapsedTime = (distance: number): string => {
-    let seconds = (this.state.secs * distance);
-    let [start, end] = (seconds < 3600) ? [14, 19] : [11, 19]
-    return new Date(seconds).toISOString().substring(start, end)
+    return formatSeconds(this.state.secs * distance)
+  }
+  paceKm = () => {
+    return formatSeconds(this.state.secs * oneKm)
+  }
+  speedKm = () => {
+    return ((60 * 60) / this.state.secs).toFixed(1)
+  }
+  paceMi = () => {
+    return formatSeconds((this.state.secs * oneMileInKm) * oneKm)
+  }
+  speedMi = () => {
+    return ((60 * 60) / (this.state.secs * oneMileInKm)).toFixed(1)
   }
   inc = () => {
     this.setState((state, props) => ({
@@ -65,7 +81,7 @@ export default class Pace extends React.Component<IProps, IState> {
                   Distance
                 </th>
                 <th scope="col" className="px-6 py-3 text-left">
-                  Pace (min/km)
+                  Elapsed Time
                 </th>
               </tr>
             </thead>
@@ -82,6 +98,24 @@ export default class Pace extends React.Component<IProps, IState> {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="flex justify-between bg-elixirBlue-500">
+          <div className="p-4">
+            <small>min/km</small>
+            <div>{this.paceKm()}</div>
+          </div>
+          <div className="p-4">
+            <small>km/h</small>
+            <div>{this.speedKm()}</div>
+          </div>
+          <div className="p-4">
+            <small>mi/h</small>
+            <div>{this.speedMi()}</div>
+          </div>
+          <div className="p-4">
+            <small>min/mi</small>
+            <div>{this.paceMi()}</div>
+          </div>
         </div>
         <div className="flex rounded-md shadow-sm mt-4" role="group">
           <button onClick={this.dec} type="button" className="w-1/2 p-6 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
