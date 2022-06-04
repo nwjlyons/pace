@@ -41,24 +41,24 @@ export default class Pace extends React.Component<IProps, IState> {
   elapsedTime = (distance: number): string => {
     return formatSeconds(this.state.secs * distance)
   }
-  paceKm = () => {
+  paceKm = (): string => {
     return formatSeconds(this.state.secs * oneKm)
   }
-  speedKm = () => {
+  speedKm = (): string => {
     return ((60 * 60) / this.state.secs).toFixed(1)
   }
-  paceMi = () => {
+  paceMi = (): string => {
     return formatSeconds((this.state.secs * oneMileInKm) * oneKm)
   }
-  speedMi = () => {
+  speedMi = (): string => {
     return ((60 * 60) / (this.state.secs * oneMileInKm)).toFixed(1)
   }
-  inc = (n) => {
+  inc = (n: number): void => {
     this.setState((state, props) => ({
       secs: state.secs + n
     }));
   }
-  dec = (n) => {
+  dec = (n: number): void => {
     this.setState((state, props) => ({
       secs: state.secs - n
     }));
