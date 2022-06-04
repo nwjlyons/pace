@@ -65,7 +65,7 @@ export default class Pace extends React.Component<IProps, IState> {
   }
   render() {
     return (
-      <div className="flex gap-4 flex-col">
+      <div className="flex gap-4 flex-col m-4">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -81,10 +81,10 @@ export default class Pace extends React.Component<IProps, IState> {
             <tbody>
               {distances.map(distance => (
                 <tr key={distance.distance} className="bg-white border-b">
-                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-left">
+                  <th scope="row" className="px-6 py-2 font-medium text-gray-900 whitespace-nowrap text-left">
                     {distance.name}
                   </th>
-                  <td className="px-6 py-4 text-left">
+                  <td className="px-6 py-2 text-left">
                     {this.elapsedTime(distance.distance)}
                   </td>
                 </tr>
