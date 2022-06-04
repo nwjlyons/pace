@@ -111,16 +111,16 @@ export default class Pace extends React.Component<IProps, IState> {
           </div>
         </div>
         <div className="flex rounded-md shadow-sm" role="group">
-          <button onClick={() => this.dec(1)} type="button" className="w-2/6 p-6 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+          <button onClick={() => this.dec(1)} type="button" className="w-2/6 py-6 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
             -1
           </button>
-          <button onClick={() => this.dec(10)} type="button" className="w-1/6 p-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+          <button onClick={() => this.dec(10)} type="button" className="w-1/6 py-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
             -10
           </button>
-          <button onClick={() => this.inc(10)} type="button" className="w-1/6 p-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+          <button onClick={() => this.inc(10)} type="button" className="w-1/6 py-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
             +10
           </button>
-          <button onClick={() => this.inc(1)} type="button" className="w-2/6 p-6 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+          <button onClick={() => this.inc(1)} type="button" className="w-2/6 py-6 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
             +1
           </button>
         </div>
