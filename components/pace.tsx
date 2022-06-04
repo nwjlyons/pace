@@ -12,9 +12,7 @@ const distances: Array<{ name: string, distance: number }> = [
   { name: "100 m", distance: 100 },
   { name: "200 m", distance: 200 },
   { name: "400 m", distance: 400 },
-  { name: "800 m", distance: 800 },
   { name: "1 km", distance: 1000 },
-  { name: "1 mile", distance: 1609.34 },
   { name: "5 km", distance: 5000 },
   { name: "10 km", distance: 10000 },
   { name: "Half Marathon", distance: 21097.5 },
@@ -55,24 +53,19 @@ export default class Pace extends React.Component<IProps, IState> {
   speedMi = () => {
     return ((60 * 60) / (this.state.secs * oneMileInKm)).toFixed(1)
   }
-  inc = () => {
+  inc = (n) => {
     this.setState((state, props) => ({
-      secs: state.secs + 1
+      secs: state.secs + n
     }));
   }
-  dec = () => {
+  dec = (n) => {
     this.setState((state, props) => ({
-      secs: state.secs - 1
+      secs: state.secs - n
     }));
   }
   render() {
     return (
-      <div className="m-4">
-        <header className="p-4 bg-white rounded-lg shadow flex items-center justify-center md:p-6">
-          <h1 className="text-3xl text-gray-800 font-bold"><Link href="/" className="hover:underline">Pace Converter</Link>
-          </h1>
-        </header>
-        <h1 className="text-4xl mb-4"></h1>
+      <div className="flex gap-4 flex-col">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -99,7 +92,7 @@ export default class Pace extends React.Component<IProps, IState> {
             </tbody>
           </table>
         </div>
-        <div className="flex justify-between bg-elixirBlue-500">
+        <div className="flex justify-between bg-gray-800 text-white rounded">
           <div className="p-4">
             <small>min/km</small>
             <div>{this.paceKm()}</div>
@@ -117,12 +110,18 @@ export default class Pace extends React.Component<IProps, IState> {
             <div>{this.paceMi()}</div>
           </div>
         </div>
-        <div className="flex rounded-md shadow-sm mt-4" role="group">
-          <button onClick={this.dec} type="button" className="w-1/2 p-6 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-            -
+        <div className="flex rounded-md shadow-sm" role="group">
+          <button onClick={() => this.dec(1)} type="button" className="w-2/6 p-6 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+            -1
           </button>
-          <button onClick={this.inc} type="button" className="w-1/2 p-6 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-            +
+          <button onClick={() => this.dec(10)} type="button" className="w-1/6 p-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+            -10
+          </button>
+          <button onClick={() => this.inc(10)} type="button" className="w-1/6 p-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+            +10
+          </button>
+          <button onClick={() => this.inc(1)} type="button" className="w-2/6 p-6 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+            +1
           </button>
         </div>
       </div>
