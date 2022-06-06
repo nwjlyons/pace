@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Pace" />
       </Head>
-      <main className='mx-auto max-w-screen-md'><Pace /></main>
+      <main className='mx-auto max-w-screen-lg'><Pace /></main>
     </>
   )
 }
