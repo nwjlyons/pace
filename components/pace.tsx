@@ -1,10 +1,6 @@
 import React from "react";
-import Link from 'next/link'
 
-
-const min = 0;
 const initial = 60 * 4;
-const max = 60 * 15;
 const oneKm = 1000;
 const oneMileInKm = 1.609344;
 
