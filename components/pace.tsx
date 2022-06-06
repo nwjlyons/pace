@@ -82,7 +82,7 @@ export default class Pace extends React.Component<IProps, IState> {
   render() {
     return (
       <div className="flex gap-4 flex-col m-4">
-        <h1 className="text-xl text-gray-500 text-center"><Link href="/">Pace Calculator</Link></h1>
+        <h1 className="text-xl text-gray-500 text-center"><Link href="/">Race Predictor</Link></h1>
         <div className="flex gap-4 flex-col md:flex-row">
           <div className="md:w-1/2 order-2 md:order-1 relative overflow-x-auto shadow-md rounded-lg">
             <table className="w-full text-sm text-gray-500">
