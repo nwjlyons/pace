@@ -8,18 +8,19 @@ const oneMileInM = oneMileInKm * 1000;
 const marathonKm = 42195
 const halfMarathonKm = 42195 / 2
 
-const distances: Array<{ name: string, description: string, distance: number }> = [
-  { name: "100 m", description: "", distance: 100 },
-  { name: "200 m", description: "", distance: 200 },
-  { name: "400 m", description: "", distance: 400 },
-  { name: "1 km", description: `${formatKmToMiles(1000)} miles`, distance: 1000 },
-  { name: "1 mile", description: `${formatMetresToKm(oneMileInM)} km`, distance: oneMileInM },
-  { name: "5 km", description: `${formatKmToMiles(5000)} miles`, distance: 5000 },
-  { name: "5 miles", description: `${formatMilesToKm(5)} km`, distance: oneMileInM * 5 },
-  { name: "10 km", description: `${formatKmToMiles(10000)} miles`, distance: 10000 },
-  { name: "10 miles", description: `${formatMilesToKm(10)} km`, distance: oneMileInM * 10 },
-  { name: "Half Marathon", description: `${formatKmToMiles(halfMarathonKm)} miles, ${formatMetresToKm(halfMarathonKm)} km`, distance: 21097.5 },
-  { name: "Marathon", description: `${formatKmToMiles(marathonKm)} miles, ${formatMetresToKm(marathonKm)} km`, distance: marathonKm },
+const distances: Array<{ name: string, description: string, distance: number, highlight: boolean }> = [
+  { name: "100 m", description: "", distance: 100, highlight: false },
+  { name: "200 m", description: "", distance: 200, highlight: false },
+  { name: "400 m", description: "", distance: 400, highlight: false },
+  { name: "1 km", description: `${formatKmToMiles(1000)} miles`, distance: 1000, highlight: false },
+  { name: "1 mile", description: `${formatMetresToKm(oneMileInM)} km`, distance: oneMileInM, highlight: false },
+  { name: "5 km", description: `${formatKmToMiles(5000)} miles`, distance: 5000, highlight: true },
+  { name: "5 miles", description: `${formatMilesToKm(5)} km`, distance: oneMileInM * 5, highlight: false },
+  { name: "10 km", description: `${formatKmToMiles(10000)} miles`, distance: 10000, highlight: true },
+  { name: "10 miles", description: `${formatMilesToKm(10)} km`, distance: oneMileInM * 10, highlight: false },
+  { name: "15 km", description: `${formatKmToMiles(15000)} miles`, distance: 15000, highlight: false },
+  { name: "Half Marathon", description: `${formatKmToMiles(halfMarathonKm)} miles, ${formatMetresToKm(halfMarathonKm)} km`, distance: 21097.5, highlight: true },
+  { name: "Marathon", description: `${formatKmToMiles(marathonKm)} miles, ${formatMetresToKm(marathonKm)} km`, distance: marathonKm, highlight: true },
 ]
 
 function formatKmToMiles(distance: number): string {
@@ -98,12 +99,12 @@ export default class Pace extends React.Component<IProps, IState> {
               </thead>
               <tbody>
                 {distances.map(distance => (
-                  <tr key={distance.distance} className="bg-white border-b">
-                    <th scope="row" className="px-6 py-2 font-medium text-gray-900 whitespace-nowrap text-left">
+                  <tr key={distance.distance} className={distance.highlight ? "bg-yellow-100 border-b" : "bg-white border-b"}>
+                    <th scope="row" className="px-6 py-1 font-medium text-gray-900 whitespace-nowrap text-left">
                       <div>{distance.name}</div>
                       {distance.description ? <small className="text-gray-400">{distance.description}</small> : ""}
                     </th>
-                    <td className="px-6 py-2 text-left">
+                    <td className="px-6 py-1 text-left">
                       {this.elapsedTime(distance.distance)}
                     </td>
                   </tr>
