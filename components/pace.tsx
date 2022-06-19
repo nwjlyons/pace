@@ -17,8 +17,8 @@ const distances: Array<{ name: string, description: string, distance: number, hi
   { name: "5 km", description: `${formatKmToMiles(5000)} miles`, distance: 5000, highlight: true },
   { name: "5 miles", description: `${formatMilesToKm(5)} km`, distance: oneMileInM * 5, highlight: false },
   { name: "10 km", description: `${formatKmToMiles(10000)} miles`, distance: 10000, highlight: true },
-  { name: "10 miles", description: `${formatMilesToKm(10)} km`, distance: oneMileInM * 10, highlight: false },
   { name: "15 km", description: `${formatKmToMiles(15000)} miles`, distance: 15000, highlight: false },
+  { name: "10 miles", description: `${formatMilesToKm(10)} km`, distance: oneMileInM * 10, highlight: false },
   { name: "Half Marathon", description: `${formatKmToMiles(halfMarathonKm)} miles, ${formatMetresToKm(halfMarathonKm)} km`, distance: 21097.5, highlight: true },
   { name: "Marathon", description: `${formatKmToMiles(marathonKm)} miles, ${formatMetresToKm(marathonKm)} km`, distance: marathonKm, highlight: true },
 ]
