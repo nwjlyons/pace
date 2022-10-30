@@ -156,7 +156,7 @@ class App {
     }
 }
 
-m.route.prefix = ''
+// m.route.prefix = ''
 m.route(document.body, "/pace/300", {
     "/pace/:pace": App,
 })
