@@ -747,7 +747,7 @@ video {
 }
 
 html{
-  touch-action:none;
+  touch-action:manipulation;
 }
 
 *{
