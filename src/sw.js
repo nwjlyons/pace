@@ -1,6 +1,8 @@
 var CACHE_NAME = 'pace';
 var urlsToCache = [
   '/',
+  '/favicon.ico',
+  '/apple-touch-icon.png',
   '/app.css',
   '/app.js',
 ];

@@ -93,7 +93,7 @@ class App {
 
     view(): m.Vnode {
         return m("main", {class: "flex gap-4 flex-col m-4"}, [
-            m("h1", {class: "text-2xl text-gray-800 text-center"}, "🏃‍♀️ Race Predictor 🏃‍♂️"),
+            m("h1", {class: "text-2xl text-gray-800 text-center"}, "🏃‍♀️ Race Pace 🏃‍♂️"),
             m("div", {class: "flex gap-4 flex-col"},[
                 m("div", {class: "flex flex-col gap-4"}, [
                     m("table", {class: "w-full text-sm text-gray-500 shadow-md rounded-lg"}, [
