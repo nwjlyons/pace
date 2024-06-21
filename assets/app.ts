@@ -14,18 +14,17 @@ type Distance = {
 }
 
 const distances: Array<Distance> = [
-  { name: "100 m", description: "", distance: 100, highlight: false },
-  { name: "200 m", description: "", distance: 200, highlight: false },
-  { name: "400 m", description: "", distance: 400, highlight: false },
-  { name: "1 km", description: `${formatDistance(convertKmToMiles(1000))} miles`, distance: 1000, highlight: false },
-  { name: "1 mile", description: `${formatDistance(convertMetresToKm(oneMileInM))} km`, distance: oneMileInM, highlight: false },
-  { name: "5 km", description: `${formatDistance(convertKmToMiles(5000))} miles`, distance: 5000, highlight: true },
-  { name: "5 miles", description: `${formatDistance(convertMilesToKm(5))} km`, distance: oneMileInM * 5, highlight: false },
-  { name: "10 km", description: `${formatDistance(convertKmToMiles(10000))} miles`, distance: 10000, highlight: true },
-  { name: "15 km", description: `${formatDistance(convertKmToMiles(15000))} miles`, distance: 15000, highlight: false },
-  { name: "10 miles", description: `${formatDistance(convertMilesToKm(10))} km`, distance: oneMileInM * 10, highlight: false },
-  { name: "Half Marathon", description: `${formatDistance(convertKmToMiles(halfMarathonKm))} miles, ${formatDistance(convertMetresToKm(halfMarathonKm))} km`, distance: 21097.5, highlight: true },
   { name: "Marathon", description: `${formatDistance(convertKmToMiles(marathonKm))} miles, ${formatDistance(convertMetresToKm(marathonKm))} km`, distance: marathonKm, highlight: true },
+  { name: "Half Marathon", description: `${formatDistance(convertKmToMiles(halfMarathonKm))} miles, ${formatDistance(convertMetresToKm(halfMarathonKm))} km`, distance: 21097.5, highlight: true },
+  { name: "10 km", description: `${formatDistance(convertKmToMiles(10000))} miles`, distance: 10000, highlight: true },
+  { name: "5 km", description: `${formatDistance(convertKmToMiles(5000))} miles`, distance: 5000, highlight: true },
+  { name: "1 mile", description: `${formatDistance(convertMetresToKm(oneMileInM))} km`, distance: oneMileInM, highlight: false },
+  { name: "1500 m", description: "", distance: 1500, highlight: false },
+  { name: "1 km", description: `${formatDistance(convertKmToMiles(1000))} miles`, distance: 1000, highlight: false },
+  { name: "800 m", description: "", distance: 800, highlight: false },
+  { name: "400 m", description: "", distance: 400, highlight: false },
+  { name: "200 m", description: "", distance: 200, highlight: false },
+  { name: "100 m", description: "", distance: 100, highlight: false },
 ]
 
 function formatPace(seconds: number): string {
@@ -129,11 +128,11 @@ class App {
                             ])
                         ])
                     ]),
-                    m("div", {class: "flex rounded-md shadow-sm"}, [
-                        m("button", {onclick: (): void => this.decrement(), class: "select-none w-2/6 py-6 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "-1s"),
-                        m("button", {onclick: (): void => this.decrement(10), class: "select-none w-1/6 py-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "-10s"),
-                        m("button", {onclick: (): void => this.increment(10), class: "select-none w-1/6 py-6 text-sm font-medium text-gray-900 bg-white border border-gray-200 bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "+10s"),
-                        m("button", {onclick: (): void => this.increment(), class: "select-none w-2/6 py-6 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "+1s"),
+                    m("div", {class: "grid grid-cols-4 rounded-md shadow-sm"}, [
+                        m("button", {onclick: (): void => this.decrement(), class: "select-none py-6 text-sm font-medium text-gray-900 bg-green-100 rounded-l-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "-1s"),
+                        m("button", {onclick: (): void => this.decrement(10), class: "select-none py-6 text-sm font-medium text-gray-900 bg-green-300 border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "-10s"),
+                        m("button", {onclick: (): void => this.increment(10), class: "flex items-center gap-2 justify-center select-none  py-6 text-sm font-medium text-gray-900 bg-red-300 border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "+10s"),
+                        m("button", {onclick: (): void => this.increment(), class: "flex items-center gap-2 justify-center select-none  py-6 text-sm font-medium text-gray-900 bg-red-100 rounded-r-md border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"}, "+1s"),
                     ])
                 ]),
                 m("div", {class: "flex flex-col gap-4"}, m("table", {class: "w-full text-sm text-gray-500 shadow-md rounded-lg"}, [
